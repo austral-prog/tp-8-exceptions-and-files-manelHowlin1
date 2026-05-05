@@ -30,13 +30,16 @@ def count_words(filename):
     """
 
     diccionario = {}
-    with open(filename, 'r') as archivo:
-        for linea in archivo:
-            palabras = linea.split()
-            for palabra in palabras:
-                palabra = palabra.lower()
-                if palabra in diccionario:
-                    diccionario[palabra] += 1
-                else:
-                    diccionario[palabra] = 1
+    try:
+        with open(filename, 'r') as archivo:
+            for linea in archivo:
+                palabras = linea.split()
+                for palabra in palabras:
+                    palabra = palabra.lower()
+                    if palabra in diccionario:
+                        diccionario[palabra] += 1
+                    else:
+                        diccionario[palabra] = 1
+    except FileNotFoundError:
+        raise
     return diccionario

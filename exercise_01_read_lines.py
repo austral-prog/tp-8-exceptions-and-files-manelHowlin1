@@ -26,10 +26,12 @@ def read_lines(filename):
         read_lines("datos.txt") -> ["manzana", "banana", "pera"]
     """ 
     lineas_limpias = []
-    with open(filename, 'r') as archivo:
-        for linea in archivo:
-            contenido = linea.strip()
-            if len(contenido) > 0:
-                lineas_limpias.append(contenido)
-
+    try:
+        with open(filename, 'r') as archivo:
+            for linea in archivo:
+                contenido = linea.strip()
+                if len(contenido) > 0:
+                    lineas_limpias.append(contenido)
+    except FileNotFoundError:
+                raise
     return lineas_limpias

@@ -34,40 +34,6 @@ def csv_to_dict(filename):
             {"name": "Bob", "age": 25, "city": "Rosario"},
         ]
     """
-    """
-    try:
-        with open("data/ej05_people.csv", mode='r') as archivo:
-            lista = []
-            primera_linea = True
-            header = []
-            lineas = []
-            diccionario_fila = {}
-            for l in archivo:
-                lineas.append(l)
-            if len(lineas) == 0:
-                return []
-
-            header_linea = lineas[0].strip()
-            if header_linea == "":
-                return []
-            header = header_linea.split(",")
-            for i in range(1, len(lineas)):
-                fila_texto = lineas[i].strip()
-                valores = fila_texto.split(",")
-                registro = {}
-                for j in range(len(header)):
-                    clave = header[j].strip()
-                    valor = valores[j].strip()
-                    if clave == "age":
-                        registro[clave] = int(valor)
-                    else:
-                        registro[clave] = valor
-                lista.append(diccionario_fila)
-    except FileNotFoundError:
-        raise
-    return lista
-"""
-
     try:
         with open(filename, mode='r') as archivo:
             lista = []

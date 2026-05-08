@@ -28,4 +28,19 @@ def write_inventory(filename, inventory):
         # iron:7
         # wood:10
     """
-    pass  # Reemplazar con tu implementación
+    try:
+        with open(filename, "w") as archivo:
+            materiales = []
+            for material in inventory:
+                materiales.append(material)
+            dicc_ordenado = {}
+            while len(materiales) > 0:
+                mas_chico = materiales[0]
+                for n in materiales:
+                    if n < mas_chico:
+                        mas_chico = n
+                cantidad = inventory[mas_chico]
+                archivo.write(f"{mas_chico}:{cantidad}\n")
+                materiales.remove(mas_chico)
+    except FileNotFoundError:
+        raise

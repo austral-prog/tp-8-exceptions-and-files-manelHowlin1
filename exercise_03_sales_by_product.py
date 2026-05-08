@@ -82,4 +82,3 @@ def process_sales(data):
         print(f"{producto}: ventas totales ${total_precios:.2f}, promedio ${promedio:.2f}")
 
 
-    return

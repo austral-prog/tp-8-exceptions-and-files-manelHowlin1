@@ -1,4 +1,5 @@
 # Ejercicio 9 - Combinar dos archivos
+import csv
 
 
 def merge_files(file1, file2, output):
@@ -32,4 +33,16 @@ def merge_files(file1, file2, output):
         # hola
         # mundo
     """
-    pass  # Reemplazar con tu implementación
+    try:
+        with open(file1, "r") as archivo1:
+            with open(file2, "r") as archivo2:
+                texto1 = archivo1.read()
+                texto2 = archivo2.read()
+                texto_completo = texto1 + texto2
+
+        with open(output, "w") as archivo_final:
+            archivo_final.write(texto_completo)
+    except FileNotFoundError:
+        raise
+
+

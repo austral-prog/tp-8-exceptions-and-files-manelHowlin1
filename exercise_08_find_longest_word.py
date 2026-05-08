@@ -47,3 +47,6 @@ def find_longest_word(filename):
                 raise ValueError("archivo no existe")
 
             return palabra_mas_larga
+        
+    except FileNotFoundError:
+        raise
